@@ -5,7 +5,7 @@ public class EvenOrOdd {
     String parity = "neither even nor odd? How strange.";
     int number = 0;
     if (args.length != 1) { 
-      System.out.println("Usage: EvenOrOdd [integer].\nPlease enter a single integer (e.g. -5, 10, 999) as your argument).");
+      System.out.println("Usage: EvenOrOdd [integer].\nPlease enter a single integer (e.g. -5, 10, 999) as your argument.");
       System.exit(0);
     } else {
       try {
