@@ -1,4 +1,4 @@
-//Problem: Write a program that will read in a number from 0 to 99 and spell out that number.
+//Problem: Write a program that will read in a number from 0 to 999999999999 and spell out that number.
 
 public class SuperSay {
 
