@@ -12,6 +12,7 @@ public class SuperSay {
       try {
         input = args[0];
         num = Long.parseLong(input);  
+        input = String.valueOf(num);
         if (!(num >= 0 && num <= 999999999999L)) {
           System.out.println("Choose a number between 0 and 999999999999 please.");
           System.exit(1);
@@ -39,16 +40,14 @@ public class SuperSay {
         else if (i > 6) output += " million, ";
         else if (i > 3) output += " thousand, ";
         i -= 3;
-      }
-      if (i % 3 == 2) {
+      } else if (i % 3 == 2) {
         if (i != 2) output += getString(input.substring(l-i,l-(i-2)));
         else output += getString(input.substring(l-2));
         if (i > 9) output += " billion, ";
         else if (i > 6) output += " million, ";
         else if (i > 3) output += " thousand, ";
         i -= 2;
-      }
-      if (i % 3 == 1) {
+      } else if (i % 3 == 1) {
         if (i != 1) output += getString(input.substring((l-i),l-(i-1)));
         else output += getString(input.substring(l-1));
         if (i > 9) output += " billion, ";
@@ -66,14 +65,17 @@ public class SuperSay {
     String tens = "";
     String ones = "";
     String different = "blah";
-    int lastTwoDigits = Integer.parseInt(input.substring(input.length()-2));
+    String output = "";
+    int num = Integer.parseInt(input);
+    input = String.valueOf(num);
+    String lastTwoDigitsString = (num >= 10) ? input.substring(input.length()-2) : "-1";
+    int lastTwoDigits = Integer.parseInt(lastTwoDigitsString);
     boolean differentName = (lastTwoDigits >= 10 && lastTwoDigits <= 19);
-    int num = Integer.parseInt(input);  
     if (num <= 9) onesIndex = 0;
     if (num >= 10) onesIndex = 1;
     if (num >= 100) onesIndex = 2;
     if (differentName) {
-      switch (input) {
+      switch (lastTwoDigitsString) {
         case "10": different = "ten"; break;
         case "11": different = "eleven"; break;
         case "12": different = "twelve"; break;
@@ -105,6 +107,7 @@ public class SuperSay {
         return ones;
       } else {
         switch (input.charAt(onesIndex - 1)) {
+          case '0': tens = "zero"; break;
           case '2': tens = "twenty"; break;
           case '3': tens = "thirty"; break;
           case '4': tens = "forty"; break;
@@ -115,7 +118,9 @@ public class SuperSay {
           case '9': tens = "ninety"; break;
         }
         if (num <= 99) {
-          return (tens + " " + ones);
+          output += tens;
+          if (ones != "zero") output += " " + ones;
+          return (output);
         } 
       }
     }
@@ -130,11 +135,10 @@ public class SuperSay {
         case '8': hundreds = "eight"; break;
         case '9': hundreds = "nine"; break;
     }
-    if (differentName) { return (hundreds + " hundred " + different);
-    } else { if (ones != "zero") { return (hundreds + " hundred " + tens + " " + ones);
-             } else { return (hundreds + " hundred " + tens);
-             }
-    }
+    if (differentName) return (hundreds + " hundred " + different);
+    output += hundreds + " hundred";
+    if (tens != "zero") output += " " + tens;
+    if (ones != "zero") output += " " + ones; 
+    return output;
   }
 }
-
