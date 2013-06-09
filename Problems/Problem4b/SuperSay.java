@@ -14,7 +14,7 @@ public class SuperSay {
         num = Long.parseLong(input);  
         input = String.valueOf(num);
         if (!(num >= 0 && num <= 999999999999L)) {
-          System.out.println("Choose a number between 0 and 999999999999 please.");
+          System.out.println("Please choose a number between 0 and 999999999999.");
           System.exit(1);
         }
       } catch (Exception e) {
