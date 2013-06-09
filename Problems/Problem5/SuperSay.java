@@ -26,33 +26,58 @@ public class SuperSay {
   }
   
   public static void sayNumber (String number) {
-    System.out.println("Your number is " + number + ".");
+    System.out.println("Your number is" + number + ".");
   }
 
   public static String stringBuilder (String input) {
     String output = "";
+    String temp = "";
     int l = input.length();
     for (int i = l; i > 0; ) {
       if (i % 3 == 0) {
-        if (i != 3) output += getString(input.substring(l-i,l-(i-3)));
-        else output += getString(input.substring(l-3));
-        if (i > 9) output += " billion, ";
-        else if (i > 6) output += " million, ";
-        else if (i > 3) output += " thousand, ";
+        if (i != 3) { 
+          temp = getString(input.substring(l-i,l-(i-3)));
+          if (temp != "zero") {
+            output += (i != l) ? ", " : " ";
+            output += temp;
+          }
+        }
+        else { 
+          temp = getString(input.substring(l-3));
+          if (temp != "zero") {
+            output += (i != l) ? ", " : " ";
+            output += temp;
+          }
+        }
+        if (i > 9) output += " billion";
+        else if (i > 6) output +=  (temp != "zero") ? " million" : "";
+        else if (i > 3) output +=  (temp != "zero") ? " thousand" : "";
         i -= 3;
       } else if (i % 3 == 2) {
-        if (i != 2) output += getString(input.substring(l-i,l-(i-2)));
-        else output += getString(input.substring(l-2));
-        if (i > 9) output += " billion, ";
-        else if (i > 6) output += " million, ";
-        else if (i > 3) output += " thousand, ";
+        if (i != 2) {
+          output += (i != l) ? ", " : " "; 
+          output += getString(input.substring(l-i,l-(i-2)));
+        }
+        else {
+          output += (i != l) ? ", " : " ";
+          output += getString(input.substring(l-2));
+        }
+        if (i > 9) output += " billion";
+        else if (i > 6) output += " million";
+        else if (i > 3) output += " thousand";
         i -= 2;
       } else if (i % 3 == 1) {
-        if (i != 1) output += getString(input.substring((l-i),l-(i-1)));
-        else output += getString(input.substring(l-1));
-        if (i > 9) output += " billion, ";
-        else if (i > 6) output += " million, ";
-        else if (i > 3) output += " thousand, ";
+        if (i != 1) {
+          output += (i != l) ? ", " : " ";
+          output += getString(input.substring((l-i),l-(i-1)));
+        }
+        else {
+          output += (i != l) ? ", " : " ";
+          output += getString(input.substring(l-1));
+        }
+        if (i > 9) output += " billion";
+        else if (i > 6) output += " million";
+        else if (i > 3) output += " thousand";
         i -= 1;
       }
     }
