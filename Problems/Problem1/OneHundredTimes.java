@@ -1,4 +1,4 @@
-//Problem: Write a program that will read in a name from the command line and write it out 100 times. 
+//Problem: write a program that will read in a name from the command line and write it out 100 times. 
 
 public class OneHundredTimes {
   public static void main ( String[] args ) {

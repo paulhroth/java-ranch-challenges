@@ -1,4 +1,4 @@
-//Problem: Write a program that will read in a year and report if it is a leap year.
+//Problem: write a program that will read in a year and report if it is a leap year.
 
 public class IsLeap {
   public static void main ( String[] args ) {

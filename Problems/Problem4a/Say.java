@@ -1,4 +1,4 @@
-//Problem: Write a program that will read in a number from 0 to 99 and spell out that number.
+//Problem: write a program that will read in a number from 0 to 99 and spell out that number.
 
 public class Say {
   public static void sayNumber (String number) {

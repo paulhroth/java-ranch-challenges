@@ -1,4 +1,4 @@
-//Problem: Write a program that (algorithmically) shows a 9x9 times table. 
+//Problem: write a program that (algorithmically) shows a 9x9 times table. 
 
 public class Times 
 {

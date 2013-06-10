@@ -1,4 +1,4 @@
-//Problem: Write a program that will read in a number from the command line and print out to standard output if it is even or odd.
+//Problem: write a program that will read in a number from the command line and print out to standard output if it is even or odd.
 
 public class EvenOrOdd {
   public static void main ( String[] args ) {
